@@ -18,7 +18,7 @@ model.add(Dense(64, activation='relu'))
 model.add(Dense(10, activation='softmax'))
 
 #Step 4: Compile & Train
-model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accuracy'])
+model.compile(optimizer='sgd',loss='categorical_crossentropy',metrics=['accuracy'])
 history = model.fit(X_train, y_train, epochs=5, batch_size=128, verbose=2,validation_split=0.1)
 
 #Step 5: Evaluate
