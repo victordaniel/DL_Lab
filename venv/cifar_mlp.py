@@ -11,11 +11,14 @@ y_test = to_categorical(y_test, 10)
 
 #Step 3: Build MLP Model
 model = Sequential()
-model.add(Flatten(input_shape=(32,32,3)))
-model.add(Dense(128, activation='relu'))
-model.add(Dropout(0.2))
-model.add(Dense(64, activation='relu'))
+model.add(Flatten(input_shape=(32, 32, 3)))
+model.add(Dense(1024, activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(512, activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(256, activation='relu'))
 model.add(Dense(10, activation='softmax'))
+
 
 #Step 4: Compile & Train
 model.compile(optimizer='sgd',loss='categorical_crossentropy',metrics=['accuracy'])
